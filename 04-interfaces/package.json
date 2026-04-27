@@ -3,6 +3,15 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "add": "bun index.ts --add pierre johnny@gmail.com",
+    "list": "bun index.ts --list"
+  },
+  "dependencies": {
+    "entites": "../01-entities",
+    "use-cases": "../02-use-cases",
+    "adapters": "../03-adapters"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
