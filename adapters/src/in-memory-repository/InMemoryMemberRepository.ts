@@ -1,5 +1,4 @@
-import { Member } from 'entities';
-import type { MemberRepository } from 'use-cases';
+import { Member, type MemberRepository } from 'core';
 
 export class InMemoryMemberRepository implements MemberRepository {
     protected readonly members = new Map<string, Member>();

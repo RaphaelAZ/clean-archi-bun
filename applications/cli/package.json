@@ -8,10 +8,8 @@
     "list": "bun index.ts --list"
   },
   "dependencies": {
-    "entities": "../../core/entities",
-    "use-cases": "../../core/use-cases",
-    "controllers": "../../adapters/controllers",
-    "in-memory-repository": "../../adapters/in-memory-repository"
+    "core": "../../core",
+    "adapters": "../../adapters"
   },
   "devDependencies": {
     "@types/bun": "latest"

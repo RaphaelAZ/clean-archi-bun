@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "workspaces": [
-    "core/*",
-    "adapters/*",
+    "core",
+    "adapters",
     "applications/*"
   ],
   "devDependencies": {

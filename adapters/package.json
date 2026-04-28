@@ -1,11 +1,10 @@
 {
-  "name": "controllers",
+  "name": "adapters",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "dependencies": {
-    "entities": "../../core/entities",
-    "use-cases": "../../core/use-cases"
+    "core": "../core"
   },
   "devDependencies": {
     "@types/bun": "latest"

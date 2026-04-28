@@ -1,5 +1,5 @@
 {
-  "name": "01-entities",
+  "name": "core",
   "module": "index.ts",
   "type": "module",
   "private": true,

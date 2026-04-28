@@ -11,24 +11,10 @@
         "typescript": "^5",
       },
     },
-    "adapters/controllers": {
-      "name": "controllers",
+    "adapters": {
+      "name": "adapters",
       "dependencies": {
-        "entities": "../../core/entities",
-        "use-cases": "../../core/use-cases",
-      },
-      "devDependencies": {
-        "@types/bun": "latest",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
-      },
-    },
-    "adapters/in-memory-repository": {
-      "name": "03-adapters",
-      "dependencies": {
-        "entities": "../../core/entities",
-        "use-cases": "../../core/use-cases",
+        "core": "../core",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -40,10 +26,8 @@
     "applications/cli": {
       "name": "04-interfaces",
       "dependencies": {
-        "controllers": "../../adapters/controllers",
-        "entities": "../../core/entities",
-        "in-memory-repository": "../../adapters/in-memory-repository",
-        "use-cases": "../../core/use-cases",
+        "adapters": "../../adapters",
+        "core": "../../core",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -65,20 +49,8 @@
         "typescript": "^5",
       },
     },
-    "core/entities": {
-      "name": "01-entities",
-      "devDependencies": {
-        "@types/bun": "latest",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
-      },
-    },
-    "core/use-cases": {
-      "name": "02-use-cases",
-      "dependencies": {
-        "entities": "../entities",
-      },
+    "core": {
+      "name": "core",
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -88,12 +60,6 @@
     },
   },
   "packages": {
-    "01-entities": ["01-entities@workspace:core/entities"],
-
-    "02-use-cases": ["02-use-cases@workspace:core/use-cases"],
-
-    "03-adapters": ["03-adapters@workspace:adapters/in-memory-repository"],
-
     "04-interfaces": ["04-interfaces@workspace:applications/cli"],
 
     "@types/body-parser": ["@types/body-parser@1.19.6", "", { "dependencies": { "@types/connect": "*", "@types/node": "*" } }, "sha512-HLFeCYgz89uk22N5Qg3dvGvsv46B8GLvKKo1zKG4NybA8U2DiEO3w9lqGg29t/tfLRJpJ6iQxnVw4OnB7MoM9g=="],
@@ -120,6 +86,8 @@
 
     "accepts": ["accepts@1.3.8", "", { "dependencies": { "mime-types": "~2.1.34", "negotiator": "0.6.3" } }, "sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw=="],
 
+    "adapters": ["adapters@workspace:adapters"],
+
     "array-flatten": ["array-flatten@1.1.1", "", {}, "sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg=="],
 
     "body-parser": ["body-parser@1.20.5", "", { "dependencies": { "bytes": "~3.1.2", "content-type": "~1.0.5", "debug": "2.6.9", "depd": "2.0.0", "destroy": "~1.2.0", "http-errors": "~2.0.1", "iconv-lite": "~0.4.24", "on-finished": "~2.4.1", "qs": "~6.15.1", "raw-body": "~2.5.3", "type-is": "~1.6.18", "unpipe": "~1.0.0" } }, "sha512-3grm+/2tUOvu2cjJkvsIxrv/wVpfXQW4PsQHYm7yk4vfpu7Ekl6nEsYBoJUL6qDwZUx8wUhQ8tR2qz+ad9c9OA=="],
@@ -136,11 +104,11 @@
 
     "content-type": ["content-type@1.0.5", "", {}, "sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA=="],
 
-    "controllers": ["controllers@workspace:adapters/controllers"],
-
     "cookie": ["cookie@0.7.2", "", {}, "sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w=="],
 
     "cookie-signature": ["cookie-signature@1.0.7", "", {}, "sha512-NXdYc3dLr47pBkpUCHtKSwIOQXLVn8dZEuywboCOJY/osA0wFSLlSawr3KN8qXJEyX66FcONTH8EIlVuK0yyFA=="],
+
+    "core": ["core@workspace:core"],
 
     "debug": ["debug@2.6.9", "", { "dependencies": { "ms": "2.0.0" } }, "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="],
 
@@ -262,40 +230,8 @@
 
     "vary": ["vary@1.1.2", "", {}, "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg=="],
 
-    "02-use-cases/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "03-adapters/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "03-adapters/use-cases": ["02-use-cases@file:core/use-cases", { "dependencies": { "entities": "../entities" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "04-interfaces/controllers": ["controllers@file:adapters/controllers", { "dependencies": { "entities": "../../core/entities", "use-cases": "../../core/use-cases" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "04-interfaces/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "04-interfaces/in-memory-repository": ["03-adapters@file:adapters/in-memory-repository", { "dependencies": { "entities": "../../core/entities", "use-cases": "../../core/use-cases" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "04-interfaces/use-cases": ["02-use-cases@file:core/use-cases", { "dependencies": { "entities": "../entities" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
     "body-parser/qs": ["qs@6.15.1", "", { "dependencies": { "side-channel": "^1.1.0" } }, "sha512-6YHEFRL9mfgcAvql/XhwTvf5jKcOiiupt2FiJxHkiX1z4j7WL8J/jRHYLluORvc1XxB5rV20KoeK00gVJamspg=="],
 
-    "controllers/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
-    "controllers/use-cases": ["02-use-cases@file:core/use-cases", { "dependencies": { "entities": "../entities" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
-
     "send/ms": ["ms@2.1.3", "", {}, "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="],
-
-    "03-adapters/use-cases/entities": ["entities@file:core\\entities", {}],
-
-    "04-interfaces/controllers/entities": ["entities@file:core\\entities", {}],
-
-    "04-interfaces/controllers/use-cases": ["use-cases@file:core\\use-cases", {}],
-
-    "04-interfaces/in-memory-repository/entities": ["entities@file:core\\entities", {}],
-
-    "04-interfaces/in-memory-repository/use-cases": ["use-cases@file:core\\use-cases", {}],
-
-    "04-interfaces/use-cases/entities": ["entities@file:core\\entities", {}],
-
-    "controllers/use-cases/entities": ["entities@file:core\\entities", {}],
   }
 }

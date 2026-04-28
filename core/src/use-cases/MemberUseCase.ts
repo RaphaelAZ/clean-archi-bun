@@ -1,4 +1,4 @@
-import { Member } from "entities";
+import { Member } from "../entities/Member";
 import { type MemberRepository } from "./MemberRepository";
 import { randomUUIDv7 } from "bun";
 

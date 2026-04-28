@@ -1,4 +1,4 @@
-import { MemberUseCase } from 'use-cases';
+import { MemberUseCase } from 'core';
 
 export class MemberCommandHandler {
     constructor(private readonly memberUseCase: MemberUseCase) {}

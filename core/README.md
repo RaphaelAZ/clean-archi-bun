@@ -1,4 +1,4 @@
-# 01-entities
+# core
 
 To install dependencies:
 
