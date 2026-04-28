@@ -1,11 +1,7 @@
 export class Member {
     constructor(
-        private readonly uuid: string,
-        private readonly name: string,
-        private readonly email: string
+        public readonly uuid: string,
+        public readonly name: string,
+        public readonly email: string
     ) {}
-
-    getUuid = () => this.uuid;
-    getName = () => this.name;
-    getEmail = () => this.email;
 }

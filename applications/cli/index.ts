@@ -1,5 +1,5 @@
 import { InMemoryMemberRepository, MemberCommandHandler } from 'adapters';
-import { MemberUseCase } from 'use-cases';
+import { MemberUseCase } from 'core';
 
 const repository: InMemoryMemberRepository = new InMemoryMemberRepository();
 const memberUseCase: MemberUseCase = new MemberUseCase(repository);

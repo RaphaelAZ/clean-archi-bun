@@ -4,7 +4,7 @@ export class InMemoryMemberRepository implements MemberRepository {
     protected readonly members = new Map<string, Member>();
 
     async save(member: Member): Promise<void> {
-        this.members.set(member.getUuid(), member);
+        this.members.set(member.uuid, member);
     }
 
     async getAll(): Promise<Member[]> {
