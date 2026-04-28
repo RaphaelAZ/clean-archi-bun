@@ -11,6 +11,32 @@
         "typescript": "^5",
       },
     },
+    "adapters/controllers": {
+      "name": "controllers",
+      "dependencies": {
+        "entities": "../../core/entities",
+        "use-cases": "../../core/use-cases",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
+    "adapters/in-memory-repository": {
+      "name": "03-adapters",
+      "dependencies": {
+        "entities": "../../core/entities",
+        "use-cases": "../../core/use-cases",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
     "core/entities": {
       "name": "01-entities",
       "devDependencies": {
@@ -32,11 +58,12 @@
         "typescript": "^5",
       },
     },
-    "interfaces": {
+    "interface-express": {
       "name": "04-interfaces",
       "dependencies": {
-        "adapters": "../adapters",
-        "entites": "../core/entities",
+        "controllers": "../adapters/controllers",
+        "entities": "../core/entities",
+        "in-memory-repository": "../adapters/in-memory-repository",
         "use-cases": "../core/use-cases",
       },
       "devDependencies": {
@@ -52,7 +79,9 @@
 
     "02-use-cases": ["02-use-cases@workspace:core/use-cases"],
 
-    "04-interfaces": ["04-interfaces@workspace:interfaces"],
+    "03-adapters": ["03-adapters@workspace:adapters/in-memory-repository"],
+
+    "04-interfaces": ["04-interfaces@workspace:interface-express"],
 
     "@types/bun": ["@types/bun@1.3.13", "", { "dependencies": { "bun-types": "1.3.13" } }, "sha512-9fqXWk5YIHGGnUau9TEi+qdlTYDAnOj+xLCmSTwXfAIqXr2x4tytJb43E9uCvt09zJURKXwAtkoH4nLQfzeTXw=="],
 
@@ -60,9 +89,9 @@
 
     "bun-types": ["bun-types@1.3.13", "", { "dependencies": { "@types/node": "*" } }, "sha512-QXKeHLlOLqQX9LgYaHJfzdBaV21T63HhFJnvuRCcjZiaUDpbs5ED1MgxbMra71CsryN/1dAoXuJJJwIv/2drVA=="],
 
-    "entites": ["01-entities@workspace:core/entities"],
+    "controllers": ["controllers@workspace:adapters/controllers"],
 
-    "entities": ["01-entities@workspace:core/entities"],
+    "in-memory-repository": ["03-adapters@workspace:adapters/in-memory-repository"],
 
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 
@@ -70,10 +99,16 @@
 
     "use-cases": ["02-use-cases@workspace:core/use-cases"],
 
-    "04-interfaces/adapters": ["03-adapters@file:adapters", { "dependencies": { "entities": "../core/entities", "use-cases": "../core/use-cases" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
+    "02-use-cases/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
 
-    "04-interfaces/adapters/entities": ["entities@file:core\\entities", {}],
+    "03-adapters/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
 
-    "04-interfaces/adapters/use-cases": ["use-cases@file:core\\use-cases", {}],
+    "04-interfaces/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
+
+    "controllers/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
+
+    "in-memory-repository/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
+
+    "use-cases/entities": ["01-entities@file:core/entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
   }
 }

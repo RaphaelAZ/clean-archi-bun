@@ -6,7 +6,7 @@
   "workspaces": [
     "core/*",
     "adapters/*",
-    "interfaces"
+    "interface-express"
   ],
   "devDependencies": {
     "@types/bun": "latest"
