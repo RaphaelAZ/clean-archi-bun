@@ -4,10 +4,9 @@
   "type": "module",
   "private": true,
   "workspaces": [
-    "01-entities",
-    "02-use-cases",
-    "03-adapters",
-    "04-interfaces"
+    "core/*",
+    "adapters/*",
+    "interfaces"
   ],
   "devDependencies": {
     "@types/bun": "latest"

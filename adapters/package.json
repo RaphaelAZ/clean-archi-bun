@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "entities": "../01-entities",
-    "use-cases": "../02-use-cases"
+    "entities": "../core/entities",
+    "use-cases": "../core/use-cases"
   },
   "devDependencies": {
     "@types/bun": "latest"

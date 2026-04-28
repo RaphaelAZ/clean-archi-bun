@@ -8,9 +8,9 @@
     "list": "bun index.ts --list"
   },
   "dependencies": {
-    "entites": "../01-entities",
-    "use-cases": "../02-use-cases",
-    "adapters": "../03-adapters"
+    "entites": "../core/entities",
+    "use-cases": "../core/use-cases",
+    "adapters": "../adapters"
   },
   "devDependencies": {
     "@types/bun": "latest"

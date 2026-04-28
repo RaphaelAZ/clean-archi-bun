@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "entities": "../01-entities"
+    "entities": "../entities"
   },
   "devDependencies": {
     "@types/bun": "latest"
