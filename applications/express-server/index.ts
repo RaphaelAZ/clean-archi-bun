@@ -1,9 +1,9 @@
-import { InMemoryMemberRepository } from "adapters";
+import { SQLiteMemberRepository } from "adapters";
 import { generateServer } from "./src/server"
 
 const port = 3000;
 
-const memberRepository = new InMemoryMemberRepository();
+const memberRepository = new SQLiteMemberRepository();
 const app = generateServer(memberRepository);
 
 app.listen(port, () => {

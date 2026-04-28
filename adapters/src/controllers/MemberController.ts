@@ -1,3 +1,4 @@
+import { Member } from 'core';
 import { MemberUseCase } from "core"
 
 export class MemberController {
@@ -12,12 +13,14 @@ export class MemberController {
         }
     }
 
-    async getAll(): Promise<void> {
+    async getAll(): Promise<Member[]> {
         try {
-            const members = await this.memberUseCase.getAll();
+            const members = await this.memberUseCase.getAll()
             console.log("Current members: " + JSON.stringify(members));
+            return members;
         } catch (error) {
             console.error('Error fetching members:', error);
+            return [];
         }
     }
 }

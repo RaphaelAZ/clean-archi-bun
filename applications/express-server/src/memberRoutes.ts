@@ -4,13 +4,13 @@ import express from "express";
 
 function generateMemberRoutes(memberController: MemberController) {
     const router = express.Router();
-    router.post("/list", (req, res) => {
-        const members = memberController.getAll();
-        res.status(200).json({ message: "List of members", members });
+    router.get("/list", async (req, res) => {
+        const members = await memberController.getAll();
+        res.status(200).json({ message: "List of members", members: members });
     });
-    router.post("/add", (req, res) => {
+    router.post("/add", async (req, res) => {
         const { name, email } = req.body;
-        memberController.save(name, email);
+        await memberController.save(name, email);
         res.status(200).json({ message: "Member added" });
     });
     return router;
