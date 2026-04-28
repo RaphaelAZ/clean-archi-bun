@@ -9,7 +9,8 @@
   "workspaces": [
     "core",
     "adapters",
-    "applications/*"
+    "applications/cli",
+    "applications/express-server"
   ],
   "devDependencies": {
     "@types/bun": "latest"

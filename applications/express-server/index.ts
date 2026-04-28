@@ -1,14 +1,10 @@
-import express from "express";
-import memberRoutes from "./src/memberRoutes";
+import { InMemoryMemberRepository } from "adapters";
+import { generateServer } from "./src/server"
 
-const app = express();
-const port = Number(Bun.env.PORT ?? 3000);
+const port = 3000;
 
-app.get("/", (_request, response) => {
-	response.json({ message: "Hello from Express" });
-});
-
-app.use("/members", memberRoutes);
+const memberRepository = new InMemoryMemberRepository();
+const app = generateServer(memberRepository);
 
 app.listen(port, () => {
 	console.log(`Express server listening on http://localhost:${port}`);

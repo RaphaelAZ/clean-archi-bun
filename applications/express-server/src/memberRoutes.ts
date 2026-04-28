@@ -1,14 +1,19 @@
+import { MemberController } from 'adapters';
 
 import express from "express";
 
-const router = express.Router();
+function generateMemberRoutes(memberController: MemberController) {
+    const router = express.Router();
+    router.post("/list", (req, res) => {
+        const members = memberController.getAll();
+        res.status(200).json({ message: "List of members", members });
+    });
+    router.post("/add", (req, res) => {
+        const { name, email } = req.body;
+        memberController.save(name, email);
+        res.status(200).json({ message: "Member added" });
+    });
+    return router;
+}
 
-router.post("/list", (req, res) => {
-    res.status(200).json({ message: "List of members" });
-})
-
-router.post("/add", (req, res) => {
-    res.status(200).json({ message: "Member added" });
-})
-
-export default router;
+export default generateMemberRoutes;
