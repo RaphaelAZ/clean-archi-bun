@@ -4,11 +4,12 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "add": "bun index.ts --add pierre johnny@gmail.com",
-    "list": "bun index.ts --list"
+    "add": "bun index.ts --add apple 2 3.5",
+    "list": "bun index.ts --list",
+    "clear": "bun index.ts --clear"
   },
   "dependencies": {
-    "entites": "../01-entities",
+    "entities": "../01-entities",
     "use-cases": "../02-use-cases",
     "adapters": "../03-adapters"
   },

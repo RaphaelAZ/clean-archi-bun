@@ -1,4 +1,4 @@
-import { MemberUseCase } from './src/MemberUseCase';
-import { type MemberRepository } from "./src/MemberRepository";
+import { CartUseCase } from './src/MemberUseCase';
+import { type CartRepository } from './src/MemberRepository';
 
-export { MemberUseCase, type MemberRepository };
+export { CartUseCase, type CartRepository };

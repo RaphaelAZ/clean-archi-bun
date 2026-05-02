@@ -1,14 +1,14 @@
-import { Member } from 'entities';
-import type { MemberRepository } from 'use-cases';
+import { Cart } from 'entities';
+import type { CartRepository } from 'use-cases';
 
-export class InMemoryMemberRepository implements MemberRepository {
-    protected readonly members = new Map<string, Member>();
+export class InMemoryCartRepository implements CartRepository {
+    protected currentCart: Cart | null = null;
 
-    async save(member: Member): Promise<void> {
-        this.members.set(member.getUuid(), member);
+    async save(cart: Cart): Promise<void> {
+        this.currentCart = cart;
     }
 
-    async getAll(): Promise<Member[]> {
-        return Array.from(this.members.values());
+    async getCurrentCart(): Promise<Cart | null> {
+        return this.currentCart;
     }
 }

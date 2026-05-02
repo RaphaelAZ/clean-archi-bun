@@ -1,1 +1,1 @@
-console.log("Hello via Bun!");
+import './04-interfaces/index.ts';

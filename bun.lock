@@ -49,7 +49,7 @@
       "name": "04-interfaces",
       "dependencies": {
         "adapters": "../03-adapters",
-        "entites": "../01-entities",
+        "entities": "../01-entities",
         "use-cases": "../02-use-cases",
       },
       "devDependencies": {
@@ -87,7 +87,7 @@
 
     "04-interfaces/adapters": ["03-adapters@file:03-adapters", { "dependencies": { "entities": "../01-entities", "use-cases": "../02-use-cases" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
 
-    "04-interfaces/entites": ["01-entities@file:01-entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
+    "04-interfaces/entities": ["01-entities@file:01-entities", { "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
 
     "04-interfaces/use-cases": ["02-use-cases@file:02-use-cases", { "dependencies": { "entities": "../01-entities" }, "devDependencies": { "@types/bun": "latest" }, "peerDependencies": { "typescript": "^5" } }],
 

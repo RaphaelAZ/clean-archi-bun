@@ -1,6 +1,6 @@
-import { Member } from 'entities';
+import { Cart } from 'entities';
 
-export interface MemberRepository {
-    save(member: Member): Promise<void>;
-    getAll(): Promise<Member[]>;
+export interface CartRepository {
+    save(cart: Cart): Promise<void>;
+    getCurrentCart(): Promise<Cart | null>;
 }
