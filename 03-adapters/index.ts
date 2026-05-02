@@ -1,4 +1,4 @@
-import { InMemoryCartRepository } from './src/InMemoryMemberRepository';
-import { CartCommandHandler } from './src/MemberCommandHandler';
+import { InMemoryCartRepository } from './src/InMemoryCartRepository';
+import { CartCommandHandler } from './src/CartCommandHandler';
 
 export { InMemoryCartRepository, CartCommandHandler };

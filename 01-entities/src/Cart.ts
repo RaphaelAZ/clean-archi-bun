@@ -1,13 +1,9 @@
 export class CartItem {
     constructor(
-        private readonly productName: string,
-        private quantity: number,
-        private readonly unitPrice: number
+        public readonly productName: string,
+        public quantity: number,
+        public readonly unitPrice: number
     ) {}
-
-    getProductName = () => this.productName;
-    getQuantity = () => this.quantity;
-    getUnitPrice = () => this.unitPrice;
 
     getTotalPrice = () => this.quantity * this.unitPrice;
 
@@ -22,13 +18,9 @@ export class CartItem {
 
 export class Cart {
     constructor(
-        private readonly uuid: string,
-        private readonly items: CartItem[] = []
+        public readonly uuid: string,
+        public readonly items: CartItem[] = []
     ) {}
-
-    getUuid = () => this.uuid;
-
-    getItems = () => [...this.items];
 
     addItem(productName: string, quantity: number, unitPrice: number): void {
         if (!productName.trim()) {
@@ -43,7 +35,7 @@ export class Cart {
             throw new Error('Unit price cannot be negative.');
         }
 
-        const existingItem = this.items.find((item) => item.getProductName() === productName);
+        const existingItem = this.items.find((item) => item.productName === productName);
 
         if (existingItem) {
             existingItem.increaseQuantity(quantity);
@@ -54,7 +46,7 @@ export class Cart {
     }
 
     removeItem(productName: string): void {
-        const filteredItems = this.items.filter((item) => item.getProductName() !== productName);
+        const filteredItems = this.items.filter((item) => item.productName !== productName);
         this.items.splice(0, this.items.length, ...filteredItems);
     }
 

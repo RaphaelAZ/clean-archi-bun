@@ -15,17 +15,17 @@ export class CartCommandHandler {
     async list(): Promise<void> {
         try {
             const cart = await this.cartUseCase.getCart();
-            const items = cart.getItems();
+            const items = cart.items;
 
             if (items.length === 0) {
                 console.log('Cart is empty.');
                 return;
             }
 
-            console.log(`Cart #${cart.getUuid()}`);
+            console.log(`Cart #${cart.uuid}`);
 
             for (const item of items) {
-                console.log(`- ${item.getProductName()} | qty: ${item.getQuantity()} | unit: ${item.getUnitPrice()} | total: ${item.getTotalPrice()}`);
+                console.log(`- ${item.productName} | qty: ${item.quantity} | unit: ${item.unitPrice} | total: ${item.getTotalPrice()}`);
             }
 
             console.log(`Total: ${cart.getTotal()}`);

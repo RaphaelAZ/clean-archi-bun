@@ -1,6 +1,6 @@
 import { randomUUIDv7 } from 'bun';
 import { Cart } from 'entities';
-import { type CartRepository } from './MemberRepository';
+import { type CartRepository } from './CartRepository';
 
 export class CartUseCase {
     constructor(private readonly cartRepository: CartRepository) {}
